@@ -1,0 +1,68 @@
+/* Definição da fonte principal */
+body {
+    font-family: 'Inter', sans-serif;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+}
+
+/* Estilos para as abas de navegação */
+.tab-button {
+    @apply text-slate-600 font-semibold py-3 px-6 border-b-4 border-transparent hover:border-sky-400 transition-colors duration-200;
+}
+
+.tab-button.active {
+    @apply text-slate-800 border-sky-500;
+}
+
+/* Controle de visibilidade do conteúdo das abas */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Títulos das seções */
+.section-title {
+    @apply text-xl font-bold border-b-2 border-sky-500 pb-2 mb-4;
+}
+
+.main-section-title {
+    @apply text-2xl font-bold text-slate-800 border-b-4 border-sky-500 pb-2;
+}
+
+.contact-list {
+    @apply space-y-3 text-slate-300;
+}
+
+
+/* Regras específicas para impressão */
+@media print {
+    body {
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+    .no-print {
+        display: none;
+    }
+    .tab-content {
+        display: block !important; /* Garante que todo o conteúdo seja impresso */
+    }
+    .page-break {
+        page-break-before: always; /* Força quebra de página antes das seções de competências e certificações */
+    }
+    /* Força cores de fundo na impressão, que navegadores costumam omitir */
+    .bg-slate-800 {
+        background-color: #1e293b !important;
+    }
+    .text-white {
+        color: #fff !important;
+    }
+    .text-sky-400 {
+        color: #38bdf8 !important;
+    }
+    .border-sky-500 {
+        border-color: #0ea5e9 !important;
+    }
+}
